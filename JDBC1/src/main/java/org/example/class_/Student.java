@@ -17,38 +17,6 @@ public class Student {
         this.nbClass = nbClass;
         this.dateOfDiploma = dateOfDiploma;
     }
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public int getNbClass() {
-        return nbClass;
-    }
-
-    public void setNbClass(int nbClass) {
-        this.nbClass = nbClass;
-    }
-
-    public Date getDateOfDiploma() {
-        return dateOfDiploma;
-    }
-
-    public void setDateOfDiploma(Date dateOfDiploma) {
-        this.dateOfDiploma = dateOfDiploma;
-    }
-
     public static int Save(String firstName,String lastName,int nbClass,Date dateOfDiploma){
         Connection conn = null;
 
@@ -79,7 +47,6 @@ public class Student {
         }
         return 0;
     }
-
     public static void getAll(){
         Connection conn = null;
 
@@ -110,7 +77,6 @@ public class Student {
             }
         }
     }
-
     public static void getAllByClass(int nbClass){
         Connection conn = null;
 
@@ -144,7 +110,6 @@ public class Student {
             }
         }
     }
-
     public static void DeleteStudentById(long id){
         Connection conn = null;
 
@@ -154,13 +119,8 @@ public class Student {
 
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setLong(1,id);
-            int nbRow = preparedStatement.executeUpdate();
+            preparedStatement.executeUpdate();
             Student.getAll();
-            if(nbRow > 0){
-                System.out.println("L'étudiant a été supprimer avec succés");
-            }else{
-                System.out.println("Erreur");
-            }
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -174,7 +134,6 @@ public class Student {
             }
         }
     }
-
     @Override
     public String toString() {
         return "Student :" +
