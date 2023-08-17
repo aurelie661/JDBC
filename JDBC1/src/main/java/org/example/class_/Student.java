@@ -4,7 +4,7 @@ import org.example.utils.DatabaseManager;
 import java.sql.*;
 
 public class Student {
-    private final long id;
+    //private final long id;
     private String firstName;
     private String lastName;
     private int nbClass;
@@ -17,10 +17,6 @@ public class Student {
         this.nbClass = nbClass;
         this.dateOfDiploma = dateOfDiploma;
     }
-    public long getId() {
-        return id;
-    }
-
     public String getFirstName() {
         return firstName;
     }
@@ -53,9 +49,7 @@ public class Student {
         this.dateOfDiploma = dateOfDiploma;
     }
 
-    public static Student Save(String firstName,String lastName,int nbClass,Date dateOfDiploma){
-       // Student student = new Student(firstName,lastName,nbClass,dateOfDiploma);//todo à finir
-       // Student student1 = new Student(firstName, lastName, nbClass, dateOfDiploma)
+    public static int Save(String firstName,String lastName,int nbClass,Date dateOfDiploma){
         Connection conn = null;
 
         try {
@@ -70,13 +64,7 @@ public class Student {
 
             int nbRow = preparedStatement.executeUpdate();
             System.out.println("Nombre de ligne "+nbRow);
-            if(nbRow > 0){
-
-                System.out.println("L'étudiant a été ajouter avec succés .");
-            }else{
-                System.out.println("Aucun étudiant n'a pas été ajouter");
-            }
-            return student;
+            return preparedStatement.getGeneratedKeys().getType();
 
         }catch (SQLException e){
             System.out.println(e.getMessage());
@@ -89,7 +77,7 @@ public class Student {
                 }
             }
         }
-        return null;
+        return 0;
     }
 
     public static void getAll(){

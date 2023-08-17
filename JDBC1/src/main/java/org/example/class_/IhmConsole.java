@@ -44,6 +44,7 @@ public class IhmConsole {
         Date dateOfDiploma = Date.valueOf(scanner.next());
         Student.Save(firstName,lastName,nbClass,dateOfDiploma);
         //System.out.println("L'étudiant a bien été ajouté à la position :");
+
     }
     public static void ShowStudentsInAClass(){
         System.out.println("Merci de saisir le numéro de la classe : ");
