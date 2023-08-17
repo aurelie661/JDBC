@@ -1,5 +1,4 @@
 package org.example.class_;
-import org.example.utils.DatabaseManager;
 import java.sql.*;
 import java.util.Scanner;
 
@@ -42,7 +41,7 @@ public class IhmConsole {
         int nbClass = scanner.nextInt();
         System.out.println("Merci de saisir la date d'obtention du diplôme : ");
         Date dateOfDiploma = Date.valueOf(scanner.next());
-        Student.Save(firstName,lastName,nbClass,dateOfDiploma);
+        Student.Save(firstName, lastName, nbClass, dateOfDiploma);
         //System.out.println("L'étudiant a bien été ajouté à la position :");
 
     }

@@ -1,38 +1,41 @@
 package org.example.class_;
 import org.example.utils.DatabaseManager;
-
 import java.sql.*;
+import java.util.Date;
 
 public class Student {
-    //private final long id;
+    private long id;
     private String firstName;
     private String lastName;
     private int nbClass;
     private Date dateOfDiploma;
 
     public Student(String firstName, String lastName, int nbClass, Date dateOfDiploma) {
-
         this.firstName = firstName;
         this.lastName = lastName;
         this.nbClass = nbClass;
         this.dateOfDiploma = dateOfDiploma;
     }
-    public static int Save(String firstName,String lastName,int nbClass,Date dateOfDiploma){
+
+    public Student(long id, String firstName, String lastName, int nbClass, Date dateOfDiploma) {
+        this(firstName,lastName,nbClass,dateOfDiploma);
+        this.id = id;
+    }
+    public static void Save(String firstName, String lastName, int nbClass, Date dateOfDiploma){
         Connection conn = null;
 
         try {
             conn = DatabaseManager.getPostgresSQLConnection();
 
             String sql = "INSERT INTO student (firstName,lastName,nbClass,dateOfDiploma) VALUES (?,?,?,?)";
-            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            PreparedStatement preparedStatement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1,firstName);
             preparedStatement.setString(2,lastName);
             preparedStatement.setInt(3,nbClass);
-            preparedStatement.setDate(4,dateOfDiploma);
+            preparedStatement.setDate(4, (java.sql.Date) dateOfDiploma);
 
             int nbRow = preparedStatement.executeUpdate();
             System.out.println("Nombre de ligne "+nbRow);
-            return preparedStatement.getGeneratedKeys().getType();
 
         }catch (SQLException e){
             System.out.println(e.getMessage());
@@ -45,8 +48,8 @@ public class Student {
                 }
             }
         }
-        return 0;
     }
+
     public static void getAll(){
         Connection conn = null;
 
