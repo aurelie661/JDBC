@@ -12,6 +12,7 @@ target/
 *.iml
 *.ipr
 DatabaseManager.java
+!**/src/test/**/src/main/java/org.example/utils/
 
 ### Eclipse ###
 .apt_generated

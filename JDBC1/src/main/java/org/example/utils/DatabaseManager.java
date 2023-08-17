@@ -21,6 +21,6 @@ public class DatabaseManager {
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
-        //test git ignore
+        //test2 git ignore
     }
 }
