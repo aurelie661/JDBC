@@ -11,7 +11,7 @@ target/
 *.iws
 *.iml
 *.ipr
-DatabaseManager
+DatabaseManager.java
 
 ### Eclipse ###
 .apt_generated

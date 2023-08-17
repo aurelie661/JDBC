@@ -11,7 +11,7 @@ public class Student {
     private Date dateOfDiploma;
 
     public Student(String firstName, String lastName, int nbClass, Date dateOfDiploma) {
-        this.id = getId();
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.nbClass = nbClass;
@@ -54,7 +54,8 @@ public class Student {
     }
 
     public static Student Save(String firstName,String lastName,int nbClass,Date dateOfDiploma){
-        Student student = new Student(firstName,lastName,nbClass,dateOfDiploma);//todo à finir
+       // Student student = new Student(firstName,lastName,nbClass,dateOfDiploma);//todo à finir
+       // Student student1 = new Student(firstName, lastName, nbClass, dateOfDiploma)
         Connection conn = null;
 
         try {
