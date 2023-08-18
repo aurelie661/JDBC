@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.utils.DatabaseManager;
+import org.example.UTILS.DatabaseManager;
 
 import java.sql.*;
 import java.util.Scanner;

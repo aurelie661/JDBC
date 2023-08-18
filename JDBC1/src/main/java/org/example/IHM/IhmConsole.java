@@ -1,4 +1,6 @@
-package org.example.class_;
+package org.example.IHM;
+import org.example.MODEL.Student;
+
 import java.sql.*;
 import java.util.Scanner;
 

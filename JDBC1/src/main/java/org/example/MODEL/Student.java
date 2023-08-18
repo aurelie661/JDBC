@@ -1,5 +1,5 @@
-package org.example.class_;
-import org.example.utils.DatabaseManager;
+package org.example.MODEL;
+import org.example.UTILS.DatabaseManager;
 import java.sql.*;
 import java.util.Date;
 
